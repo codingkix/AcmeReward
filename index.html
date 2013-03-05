@@ -1,0 +1,297 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <title>Acme Reward - </title>
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/bootstrap-responsive.min.css" rel="stylesheet" />
+    <link href="http://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet" type="text/css">
+    <link href="Content/site.css" rel="stylesheet" />
+
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="Scripts/wookmark.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://swfobject.googlecode.com/svn/trunk/swfobject/swfobject.js"></script>
+    <script type="text/javascript" src="Scripts/application.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+</head>
+<body>
+    <div id="fb-root"></div>
+    <script type="text/javascript">
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '183652365112962', //http:www.codingkix.com  domain app ID
+                oauth: true,
+                status: true,
+                cookie: true,
+                xfbml: true,
+                channelUrl: document.domain + '/channel.html',
+                scope: 'id,name,gender,email,birthday,picture,publish_stream'
+            });
+
+            // Additional init code here
+            FBSettings.fbSDKLoaded = true;
+            fb_getLoginStatus();
+        };
+
+        // Load the facebook SDK Asynchronously
+        (function (d) {
+            var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+            if (d.getElementById(id)) {
+                return;
+            }
+            js = d.createElement('script');
+            js.id = id;
+            js.async = true;
+            js.src = "//connect.facebook.net/en_US/all.js";
+            ref.parentNode.insertBefore(js, ref);
+        }(document));
+
+        //facebook login
+        function fb_login() {
+            FB.login(function (response) {
+                if (response.authResponse) {
+                    // connected
+                    FBSettings.fbAccessToken = response.authResponse.accessToken;
+                    loadFBAccount();
+                    toggleLogin(true);
+                } else {
+                    // cancelled
+                    toggleLogin(false);
+                }
+            }, {
+                scope: 'publish_stream,email'
+            });
+        }
+
+        //facebook logout
+        function fb_logout() {
+            FB.logout(function (response) {
+                //logout;
+                if (response.authResponse) {
+                    toggleLogin(false);
+                }
+            });
+        };
+
+        //get facebook login status
+        function fb_getLoginStatus() {
+            if (FBSettings.fbSDKLoaded) {
+                FB.getLoginStatus(function (response) {
+                    if (response.status === 'connected') {
+                        // connected
+                        toggleLogin(true);
+                        loadFBAccount();
+                        FBSettings.fbAccessToken = response.authResponse.accessToken;
+
+                    } else if (response.status === 'not_authorized') {
+                        // not_authorized
+                        toggleLogin(false);
+                        redirectContestPage();
+                    } else {
+                        // not_logged_in
+                        toggleLogin(false);
+                        redirectContestPage();
+                    }
+                });
+            } else {
+                redirectContestPage();
+            }
+        }
+        //Load facebook account profile info
+        function loadFBAccount() {
+            // connected
+            FB.api('/me', {
+                fields: "id,name,email,picture"
+            }, function (me) {
+                if (me.name) {
+                    $('#lblName').text(me.name);
+                    $('#txtGreeting').html('Welcome, ' + me.name);
+                    $('#txtEmail').html(me.email);
+                    $('#imgAccount').attr('src', FBSettings.fbApiBaseUrl + me.id + "/picture");
+                }
+            });
+        }
+    </script>
+
+    <div id="divMain" class="container">
+        <div class="navbar">
+            <div class="container">
+                <a id="linkLogo" class="brand" href="#"></a>
+                <div id="divLogout" class="btn-group pull-right">
+                    <a class="btn"><i class="icon-user"></i>
+                        <label id="lblName"></label>
+                    </a>
+                    <a class="btn dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="#"><i class="icon-wrench"></i>Setting</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a id="linkLogout" href="#"><i class="icon-share"></i>Logout</a>
+                        </li>
+                    </ul>
+                </div>
+                <a id="linkLogin" class="pull-right"></a>
+            </div>
+        </div>
+        <ul id="ulMainNav" class="nav nav-pills">
+            <li>
+                <a href="Contests.html">contests</a>
+            </li>
+            <li>
+                <a href="Activity.html">activity</a>
+            </li>
+            <li>
+                <a href="Cliques.html">cliques</a>
+            </li>
+            <li>
+                <a href="About.html">about</a>
+            </li>
+        </ul>
+        <div class="row-fluid">
+            <div id="divLeftCol" class="span3 well">
+                <div id="divAccount">
+                    <img id="imgAccount" class="pull-left img-polaroid" />
+                    <label id="txtGreeting"></label>
+                    <label id="txtEmail"></label>
+                    <div class="clearfix"></div>
+
+                    <dl id="dlAccountProfile" class="dl-horizontal">
+                        <dt>Member Level
+                        </dt>
+                        <dd>Silver
+                        </dd>
+                        <dt>Total Points
+                        </dt>
+                        <dd>100
+                        </dd>
+                        <dt>To Next Level
+                        </dt>
+                        <dd>Unknown
+                        </dd>
+                        <dt>Badges
+                        </dt>
+                        <dd>Unknown
+                        </dd>
+                    </dl>
+                    <div class="clearfix"></div>
+                    <ul class="nav nav-list" id="secNav">
+                        <li id="profile">
+                            <a href="Profile.html">My Profile</a>
+                        </li>
+                        <li id="account">
+                            <a href="Account.html">My Account</a>
+                        </li>
+                        <li id="offers">
+                            <a href="Offer.html">My Offers</a>
+                        </li>
+                        <li id="cliques">
+                            <a href="Cliques.html">My Cliques</a>
+                        </li>
+                        <li id="badges">
+                            <a href="Badges.html">My Badges</a>
+                        </li>
+                        <li id="refer">
+                            <a href="Refer.html">Refer a Friend</a>
+                        </li>
+                    </ul>
+                    <hr />
+                </div>
+                <div class="fb-send" data-href="http://urbanoutfitters.com"></div>
+                <div clall="clearfix"></div>
+                <div class="fb-like-box" data-href="http://www.facebook.com/urbanoutfitters" data-width="190" data-show-faces="true" data-stream="false" data-header="true"></div>
+                <hr />
+                <h5>MONTHLY CHALLENGE</h5>
+                <div id="divChallenge" class="tabbable">
+                    <ul class="nav nav-tabs">
+                        <li class="active">
+                            <a href="#all" data-toggle="tab">All</a>
+                        </li>
+                        <li>
+                            <a href="#local" data-toggle="tab">Local</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="all">
+                            <h6>Top Point Earners in October</h6>
+                            <div class="dotted"></div>
+                            <dl class="dl-horizontal user-sb">
+                                <dt>Kyle M.
+										<br>
+                                    <small>Detroit, MI</small>
+                                </dt>
+                                <dd>5,467
+                                </dd>
+                                <hr class="clear">
+                                <dt>Carrie L.
+										<br>
+                                    <small>Seattle, WA</small>
+                                </dt>
+                                <dd>2,844
+                                </dd>
+                                <hr class="clear">
+                                <dt>Ron H.
+										<br>
+                                    <small>San Francisco, CA</small>
+                                </dt>
+                                <dd>1,250
+                                </dd>
+                                <hr class="clear">
+                                <dt>Mike P.
+										<br>
+                                    <small>Los Angeles, CA</small>
+                                </dt>
+                                <dd>2,398
+                                </dd>
+                                <hr class="clear">
+                                <dt>Sean A.
+										<br>
+                                    <small>Santa Clara, CA</small>
+                                </dt>
+                                <dd>1,399
+                                </dd>
+                                <hr class="clear">
+
+                                <dt class="text-warning">
+                                    <strong>Rem&nbsp;Al.</strong>
+                                    <br>
+                                    <small>(You)</small>
+                                </dt>
+                                <dd>100
+                                </dd>
+
+                            </dl>
+                            <div class="dotted"></div>
+                            <p id="parDisc">
+                                October's top point earner will receive an Acme Rewards $50 Gift certificate.
+                            </p>
+                            <div class="dotted"></div>
+                            <small><a href="#">Terms and Conditions</a></small>
+                        </div>
+                        <div class="tab-pane" id="local">
+                            <p>
+                                Howdy, I'm in Section 2.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="divRightCol" class="span9 well"></div>
+            <div id="divLoading">
+                <img src="Content/img/spinner.gif" />
+            </div>
+            <div class="modalBackground">
+            </div>
+            <div id="divPlayer">
+                <object id="player">
+                </object>
+                <p id="videoDesc">
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

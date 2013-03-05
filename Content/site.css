@@ -1,0 +1,400 @@
+﻿body {
+    background: transparent url(img/BG-All.png) repeat;
+}
+
+i {
+    margin-right: 5px;
+}
+
+hr.clear {
+    float: none;
+    clear: both;
+    margin: 0px;
+    padding: 0px;
+    visibility: hidden;
+}
+
+small a {
+    margin-top: 10px;
+    display: block;
+    color: #727E83;
+    text-decoration: underline;
+    text-transform: none !important;
+}
+
+a small{
+    color:#72AE95!important;
+}
+
+h4 {
+    color: #72AE95!important;
+    font-size: 16px!important;
+}
+
+#divMain {
+    margin-top: 15px;
+}
+
+.dropdown-menu li > a:hover, .nav li > a:hover {
+    background-image: none;
+    background-color: #CFE2DA;
+}
+
+/*Head*/
+#linkLogo {
+    width: 300px;
+    background: url(img/logo_acme.png) no-repeat top left;
+    height: 40px;
+    margin-left: 0px;
+}
+
+#divLogout {
+    display: none;
+}
+
+    #divLogout label {
+        display: inline;
+    }
+
+#linkLogin {
+    background: url(img/btn_fb.jpg) no-repeat;
+    width: 150px;
+    height: 22px;
+    cursor: pointer;
+    display: none;
+}
+
+#ulMainNav {
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+    #ulMainNav > li > a {
+        color: #31313F !important;
+    }
+
+#divMain .well dd, dt {
+    margin: 0px;
+    padding: 0px;
+    text-align: left!important;
+    font-weight: bold;
+}
+
+/*Left Column*/
+#divLeftCol {
+    font-family: Helvetica, Arial, sans-serif;
+    line-height: 15px;
+    background-color: #F9F9F9;
+}
+
+    #divLeftCol dt {
+        font-weight: normal;
+        width: 100px;
+    }
+
+#divAccount label {
+    float: left;
+    margin-left: 10px;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+#txtGreeting {
+    color: #72AE95;
+}
+
+#txtEmail {
+    font-weight: normal !important;
+    color: #999999 !important;
+}
+
+#dlAccountProfile {
+    font-size: 12px;
+}
+
+#secNav, #divChallenge a {
+    text-transform: uppercase;
+}
+
+    #secNav a, #divChallenge a {
+        color: #31313F !important;
+    }
+
+.fb-like-box {
+    margin: 20px auto;
+}
+
+.tab-content {
+    background-color: #CFE2DA;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    -moz-border-radius-bottomright: 3px;
+    -webkit-border-bottom-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    -moz-border-radius-bottomleft: 3px;
+    -webkit-border-bottom-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    padding: 10px;
+}
+
+#divChallenge .nav, #divChallenge .nav-tabs {
+    margin-bottom: 0px;
+}
+
+#divChallenge li {
+    line-height: 15px;
+}
+
+.nav > li.active > a {
+    background-color: #CFE2DA;
+}
+
+div.dotted {
+    border-bottom: 2px dotted #727E83;
+}
+
+#parDisc {
+    margin: 10px 0;
+    font-size: 12px;
+}
+
+/*Right Column*/
+#divRightCol {
+    background-color: #F9F9F9;
+}
+
+    #divRightCol .well {
+        padding: 10px 15px;
+        background-color: #FFF;
+    }
+
+    #divRightCol p {
+        font-size: 12px;
+    }
+
+.contestImg {
+    height: 135px;
+}
+
+.contestItem img {
+    margin-bottom: 15px !important;
+}
+
+dd.contestDetail, dd.contestReward {
+    display: none;
+}
+
+.contestItem dl {
+    height: 90px;
+}
+
+.contestItem dd {
+    font-weight: normal!important;
+}
+
+#partialView .well dd {
+    margin: 0;
+    padding: 0;
+}
+
+#partialView .well img {
+    display: block;
+    margin: 0 auto;
+}
+
+#divContestContent {
+    padding-right: 15px;
+    border-right: 1px solid #ddd;
+}
+
+.reward-task {
+    padding: 15px 0;
+}
+
+    .reward-task p {
+        padding: 18px 0 0 0;
+    }
+
+#divContestModal {
+    width: 900px;
+    margin-left: -450px;
+    padding: 20px 30px;
+}
+
+.group-item dl {
+    height: 60px;
+}
+
+#divLoading {
+    position: fixed;
+    top: 25%;
+    left: 50%;
+    z-index: 9999;
+    display: none;
+}
+
+#divLoadMore {
+    width: 100%;
+    position: absolute;
+    bottom: 8px;
+    height: 55px;
+    border-color: #c5c5c5;
+    border-color: rgba(0, 0, 0, 0.15) rgba(0, 0, 0, 0.15) rgba(0, 0, 0, 0.25);
+    line-height: normal;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    color: #333;
+    background-color: #f5f5f5;
+    *background-color: #e6e6e6;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6));
+    background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6);
+    background-image: -o-linear-gradient(top, #ffffff, #e6e6e6);
+    background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
+    background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6);
+    background-repeat: repeat-x;
+    display: none;
+}
+
+    #divLoadMore p {
+        text-align: center;
+        font-size: 18px;
+        font-weight: bold;
+        margin-top: 15px;
+    }
+
+#divPlayer {
+    z-index: 8888;
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    display: none;
+    margin-left: -320px;
+}
+
+#videoDesc {
+    width: 640px;
+    margin-top: 10px;
+    color: whitesmoke;
+    font-size: 12px;
+}
+
+    #videoDesc a {
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+    }
+
+
+.modalBackground {
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    opacity: 0.85;
+    z-index: 1000;
+    background-color: grey;
+    display: none;
+}
+
+
+#ulFeeds {
+    position: relative;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+    #ulFeeds li {
+        background-color: #fff;
+        border: 1px solid #E3E3E3;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+        -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+        display: none; /** Hide items initially to avoid a flicker effect **/
+        padding: 5px 15px;
+        margin-bottom: 15px;
+        width: 140px;
+        text-align: center;
+    }
+
+        #ulFeeds li p {
+            text-align: left;
+            padding: 10px 0;
+            font-size: 12px;
+            line-height: 14px;
+            clear: both;
+        }
+
+        #ulFeeds li img {
+            text-align: center;
+        }
+
+    #ulFeeds a {
+        font-size: 12px;
+        line-height: 1.2em;
+        color: #999!important;
+    }
+
+    #ulFeeds small {
+        font-size: 9px;
+        color: #666;
+        margin-right: 15px;
+        margin-top: 6.5px;
+        vertical-align: middle;
+    }
+
+#divFeeds {
+    position: relative;
+    clear: left;
+}
+
+.profileSection {
+    font-size: 12px;
+}
+
+    .profileSection dt {
+        font-weight: normal!important;
+        width: 110px;
+    }
+
+#divProfileActivity .well {
+    height: 300px;
+}
+
+    #divProfileActivity .well dd:last-child {
+        font-weight: normal;
+    }
+
+dl.account {
+    font-size: 90%;
+}
+
+#divAccount dt {
+    font-weight: normal!important;
+    width: 220px;
+}
+
+.level-bar {
+    margin-bottom: 20px!important;
+}
+
+#divLoginStore.span12 img {
+    display: inline-block!important;
+    margin: 20px 2px 20px 0!important;
+}
+
+.badge-cat dd{
+    font-weight:normal!important;
+}
+
+.badges-contest, .badges td{
+    text-align:center!important;
+}
